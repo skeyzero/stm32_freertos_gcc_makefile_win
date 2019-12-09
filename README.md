@@ -24,7 +24,11 @@ stlink地址[C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LI
 * 配置编译选项，简单来说执行哪个指令。在选择的工程下，右键->Build Targets -> Create。来创建编译选项。这里我一般用到3个常用的编译选项。   
 	1.工程编译   make.exe all    
 	2.清除工程   make.exe clean     
-	3.下载工程到目标硬件 make.exe flash   
+	3.下载工程到目标硬件 make.exe flash  
+![avatar](./image/1.png)
+![avatar](./image/1.png)
+![avatar](./image/1.png)
+![avatar](./image/1.png)	
 * 工程中忽略某些不必要的文件。Eclipse会将工程所有文件显示，这样编译下来会出现一堆生成文件，对我们来说是不必要看到的，所以把它过滤掉整个工程就干净多了。[参考这里](https://www.cnblogs.com/jhj117/p/7195893.html)
 
 ![avatar](./image/1.gif)
