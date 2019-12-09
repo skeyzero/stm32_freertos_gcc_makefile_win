@@ -110,12 +110,14 @@ all: $(OBJECTS) $(PROJECT_NAME).elf  $(PROJECT_NAME).hex $(PROJECT_NAME).bin
 	$(BIN)  $< $@
 
 flash: $(PROJECT_NAME).bin
-	st-flash write $(PROJECT_NAME).bin 0x8000000
-
+#	st-flash write $(PROJECT_NAME).bin 0x8000000
+	ST-LINK_CLI.exe -c SWD -P $(PROJECT_NAME).bin 0x08000000
 erase:
+#	ST-LINK_CLI.exe -c SWD -P ./*.bin 
 	st-flash erase
 
 clean:
+#  以下部分为linux下指令
 #	-rm -rf $(OBJECTS)
 #	-rm -rf $(PROJECT_NAME).elf
 #	-rm -rf $(PROJECT_NAME).map

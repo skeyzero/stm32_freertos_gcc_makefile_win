@@ -1,45 +1,31 @@
-# STM32 Makefile FreeRTOS 10.2.1
+# Windows ´î½¨STM32¿ªÔ´¿ª·¢»·¾³    
+
+## ÒâÍ¼   
+MDK¿ìµ½ÆÚÁË°É(Îí)£¬¿ªÔ´ÖÁÉÏ²Å¶Ô¹ş¡£´î½¨Ò»¸ö²»»áÊÜµ½ÂÉÊ¦º¯µÄÃâ·Ñ¿ª·¢»·¾³(Îí)¡£     
+
+## ¹¤¾ß    
+* [arm-none-eabi-gcc](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads "Á´½Ó")<->gcc±àÒëÆ÷     
+* [make](https://nchc.dl.sourceforge.net/project/gnuwin32/make/3.81/make-3.81.exe)     <->ÎªÁË¸ü·½±ãµÄÖ´ĞĞ±àÒëµÆ²Ù×÷£¬Ã¿´Î¶¼ÇÃÖ¸Áî±àÒë²»ÊµÔÚ£¬¿ÉÒÔĞ´³ÉmakefileÖ±½ÓmakeÒ»¼ü±àÒë¡£ ÅäºÏEclipse BuildÍêÃÀÊµÏÖbuild,clean,programµÈ²Ù×÷£¨Ö»ÒªÄã»á£¬²»»á¾ÍÖ±½ÓÓÃ¾Í¶ÔÁË£©¡£    
+* Eclipse--±à¼­¹¤¾ß£¬ÏÂÔØC/C++°æ±¾¡£¿ÉÓÃÆäËûÈÎÒâ±à¼­Èí¼şÌæ´ú(¿ÉÑ¡£¬ÍÆ¼ö£¬stm32cubeIDEÊµ¼Ê»ùÓÚEclipse,»ùÓÚ¸öÈËÊ¹ÓÃstmcubeIDE³öÏÖ»áÉ¾³ıÓÃ»§ÎÄ¼şbug£¬¼Ä´æÆ÷¿ª·¢Ò²²»ÓÃµ½hal¿â£¬¹û¶ÏÅ×Æústm32cubeIDE)¡£      
+* [stlink-utility](https://www.st.com/en/development-tools/stsw-link004.html "ÏÂÔØµØÖ·")<->st¹Ù·½stlinkÏÂÔØ¹¤¾ß£¬Ö÷ÒªÓÃµ½ÆäST-LINK_CLI.exe£¬ÓÃËüÀ´ÃüÁîĞĞÏÂÔØ³ÌĞò¡£
+
+* °²×°ÍêÒÔÉÏÈí¼ş£¬Çë½«°²×°Â·¾¶Ìí¼Óµ½ÏµÍ³»·¾³±äÁ¿ÖĞ¡£   Èç    
+arm-none-eabi-gccµØÖ·[C:\Program Files (x86)\GNU Tools Arm Embedded\9 2019-q4-major\bin]()
+make µØÖ· [C:\Program Files (x86)\GnuWin32\bin]()   
+stlinkµØÖ·[C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility]()
+
+## Ìí¼Ómakefile ¹¤³Ì    
+ÕâÀïÎÒÒÆÖ²ÁËÒ»¸östm32  + stlib3.5 + Freertos 10.0.2 + makefile µÄ¹¤³Ì£¬Ö±½ÓÄÃÈ¥ÓÃ°É£¬ĞèÒª¸ÄµÄ×Ô¼º¸Ä£¬¿´¿´ºÜÈİÒ×Àí½â¡£ 
 
 
-## é¡¹ç›®å‚è€ƒ 
-(è½¬è‡ªï¼šå°†Freertos9.0ç‰ˆæœ¬æ›´æ–°åˆ°æœ€æ–°ç‰ˆæœ¬.æºä½œè€…makefileå†™çš„æ¸…æ™°æ˜äº†ï¼Œå€¼å¾—å­¦ä¹ ï¼)   
-https://github.com/freelamb/stm32f10x_makefile_freertos   
+## Ê¹ÓÃEclipse
+* EclipseÊ¹ÓÃÇ°ĞèÒªÉèÖÃÒ»¸öworkspaceµÄ¹¤×÷Ä¿Â¼£¬Õâ¸öÄ¿Â¼ÓÃÓÚ¹ÜÀí¶à¸ö¹¤³ÌÁË¡£×ÜÖ®°ÑÏàÍ¬µÄ¹¤³Ì·ÅÍ¬Ò»¸öworkspaceÍ³Ò»´¦Àí¡£    
+* Ìí¼Ó¹¤³Ìµ½Eclipse.µã»÷File->import...£¬°Ñ×Ô¼ºµÄmakefile¹¤³ÌÄ¿Â¼Ìí¼Ó½øÈ¥¼´¿É¡£   
+* ÅäÖÃ±àÒëÑ¡Ïî£¬¼òµ¥À´ËµÖ´ĞĞÄÄ¸öÖ¸Áî¡£ÔÚÑ¡ÔñµÄ¹¤³ÌÏÂ£¬ÓÒ¼ü->Build Targets -> Create¡£À´´´½¨±àÒëÑ¡Ïî¡£ÕâÀïÎÒÒ»°ãÓÃµ½3¸ö³£ÓÃµÄ±àÒëÑ¡Ïî¡£   
+	1.¹¤³Ì±àÒë   make.exe all    
+	2.Çå³ı¹¤³Ì   make.exe clean     
+	3.ÏÂÔØ¹¤³Ìµ½Ä¿±êÓ²¼ş make.exe flash   
+* ¹¤³ÌÖĞºöÂÔÄ³Ğ©²»±ØÒªµÄÎÄ¼ş¡£Eclipse»á½«¹¤³ÌËùÓĞÎÄ¼şÏÔÊ¾£¬ÕâÑù±àÒëÏÂÀ´»á³öÏÖÒ»¶ÑÉú³ÉÎÄ¼ş£¬¶ÔÎÒÃÇÀ´ËµÊÇ²»±ØÒª¿´µ½µÄ£¬ËùÒÔ°ÑËü¹ıÂËµôÕû¸ö¹¤³Ì¾Í¸É¾»¶àÁË¡£[²Î¿¼ÕâÀï](https://www.cnblogs.com/jhj117/p/7195893.html)
 
-
-## ç¯å¢ƒ
-å¼€å‘å¹³å°:windowså¹³å°	
-ç¼–è¯‘å™¨ï¼šarm-none-eab-gcc	
-make: make.exe
-é¡¹ç›®ç®¡ç†:makefile	
-
-## ä½¿ç”¨
-### ç¼–è¯‘å·¥ç¨‹
-```
-$ make.exe
-```
-
-### æ¸…é™¤ç¼–è¯‘è¾“å‡º
-
-```
-$ make.exe clean
-```
-
-```
-
-## st-link Debug
-
-start debug
-```
-$ st-util
-```
-
-Clion configure debug reference
-
-http://www.jianshu.com/p/4635a2380698
-
-## Example
-
-mcu: STM32F103C8T6
-
-GPIOB11--Led
+![avatar](./image/1.gif)
 
