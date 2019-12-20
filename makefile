@@ -1,96 +1,70 @@
-# windows 下Eclipse STM32 使用
-# arm-none-eabi-gcc.exe下载https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads
-# make.exe下载 http://gnuwin32.sourceforge.net/packages/make.htm
-# 以上两个软件直接默认地址安装即刻。
-# 将以上两个软件在系统环境变量中添加。
+# 用户个人代码请写在makefile.mk文件里面，其他makefile基本不需要修改
 
+# user specific
+SRC       		=			#包含所有涉及的.c文件
+ASM_SRC  	 	=			#包含所有涉及的.s文件
+INCLUDE_DIRS 	=			#包含所有涉及的头文件路径
+CLEAN_ALL		=  			#包含所有需要clean的文件
 
-# windows 和 Linux 工具链有差别，在windows中，应当添加。exe后缀
-# windows 路径使用'\'  linux路径使用 '/'
 # toolchain
-TOOLCHAIN    = arm-none-eabi-
-CC           = $(TOOLCHAIN)gcc.exe
-CP           = $(TOOLCHAIN)objcopy.exe
-AS           = $(TOOLCHAIN)gcc.exe -x assembler-with-cpp
-HEX          = $(CP) -O ihex
-BIN          = $(CP) -O binary -S
-
-# define mcu, specify the target processor
-MCU          = cortex-m3
-
-# all the files will be generated with this name (main.elf, main.bin, main.hex, etc)
-PROJECT_NAME=stm32f10x_makefile_freertos
+CC           = arm-none-eabi-gcc.exe
+CP           = arm-none-eabi-objcopy.exe
+AS           = arm-none-eabi-gcc.exe -x assembler-with-cpp
+HEX          = arm-none-eabi-objcopy.exe -O ihex
+BIN          = arm-none-eabi-objcopy.exe -O binary -S
 
 # specify define
 DDEFS       =
 
-
-# 用于包含所有头文件
-INCLUDE_DIRS =
-
-# define stm32f10x lib dir
-STM32F10x_LIB_DIR      = .\stlib
-
-# define freertos dir
-FREERTOS_DIR = .\freertos
-
-USR_INC_DIR = .\usr_inc
-USR_SRC_DIR = .\usr_src
-
-TASK_INC_DIR = .\task_inc
-TASK_SRC_DIR = .\task_src
-
-
-# link file
-LINK_SCRIPT  = .\stlib\stm32_flash.ld
-
-# user specific
-# SRC用于包含所有。c文件，其他makefile
-SRC       =
-ASM_SRC   =
-
-
-# include sub makefiles
-include makefile_std_lib.mk   # STM32 Standard Peripheral Library
-include makefile_freertos.mk  # freertos source
-
-# 外部头文件路径
+#  添加外部makefile
+include makefile_std_lib.mk  	# STM32 Standard Peripheral Library
+include makefile_freertos.mk  	# freertos source
+include makefile_usr.mk			# USER Code
+ 
+#  外部头文件路径
 # user include 
-INCLUDE_DIRS  	+= $(USR_INC_DIR)
-INCLUDE_DIRS  	+= $(TASK_INC_DIR)
+INCLUDE_DIRS  	+= $(USR_INC)
 INCLUDE_DIRS 	+= $(STLIB_INC)
 INCLUDE_DIRS 	+= $(FREERTOS_INC)
 
-
-SRC      += $(USR_SRC_DIR)\main.c
-
-SRC      += $(TASK_SRC_DIR)\task_debug.c
-
-
-
+# 添加所有源文件
 SRC += $(STLIB_SRC)
 SRC += $(FREERTPS_SRC)
+SRC += $(USR_SRC)
 
 
+#添加所有.s文件
+ASM_SRC += $(STLIB_ASM)
+
+CLEAN_ALL += $(FREERTOS_CLEAN)
+CLEAN_ALL += $(STLIB_CLEAN)
+CLEAN_ALL += $(USR_CLEAN)
+
+CLEAN_ALL += $(PROJECT_NAME).elf
+CLEAN_ALL += $(PROJECT_NAME).map
+CLEAN_ALL += $(PROJECT_NAME).hex
+CLEAN_ALL += $(PROJECT_NAME).bin
+
+
+##################################################以下为编译选项，一般不需要修改
+# define mcu, specify the target processor
+MCU          = cortex-m3
+
+# 路径编译选项 
 INC_DIR  = $(patsubst %, -I%, $(INCLUDE_DIRS))
 
 # run from Flash
 DEFS	 = $(DDEFS) -DRUN_FROM_FLASH=1
-
 OBJECTS  = $(ASM_SRC:.s=.o) $(SRC:.c=.o)
 
 # Define optimisation level here
 OPT = -Os
-
 MC_FLAGS = -mcpu=$(MCU)
-
 AS_FLAGS = $(MC_FLAGS) -g -gdwarf-2 -mthumb  -Wa,-amhls=$(<:.s=.lst)
 CP_FLAGS = $(MC_FLAGS) $(OPT) -g -gdwarf-2 -mthumb -fomit-frame-pointer -Wall -fverbose-asm -Wa,-ahlms=$(<:.c=.lst) $(DEFS)
 LD_FLAGS = $(MC_FLAGS) -g -gdwarf-2 -mthumb -nostartfiles -Xlinker --gc-sections -T$(LINK_SCRIPT) -Wl,-Map=$(PROJECT_NAME).map,--cref,--no-warn-mismatch
 
-#
 # makefile rules
-#
 all: $(OBJECTS) $(PROJECT_NAME).elf  $(PROJECT_NAME).hex $(PROJECT_NAME).bin
 	$(TOOLCHAIN)size $(PROJECT_NAME).elf
 
@@ -111,12 +85,12 @@ all: $(OBJECTS) $(PROJECT_NAME).elf  $(PROJECT_NAME).hex $(PROJECT_NAME).bin
 
 flash: $(PROJECT_NAME).bin
 #	st-flash write $(PROJECT_NAME).bin 0x8000000
-	ST-LINK_CLI.exe -c SWD -P $(PROJECT_NAME).bin 0x08000000
+	ST-LINK_CLI.exe -c SWD -P $(PROJECT_NAME).bin 0x08000000 -Run
 erase:
 #	ST-LINK_CLI.exe -c SWD -P ./*.bin 
 	st-flash erase
 
-clean:
+clean_all:
 #  以下部分为linux下指令
 #	-rm -rf $(OBJECTS)
 #	-rm -rf $(PROJECT_NAME).elf
@@ -126,12 +100,8 @@ clean:
 #	-rm -rf $(SRC:.c=.lst)
 #	-rm -rf $(ASM_SRC:.s=.lst)
 
-#	del  $(OBJECTS)
-	del  $(PROJECT_NAME).elf
-	del  $(PROJECT_NAME).map
-	del  $(PROJECT_NAME).hex
-	del  $(PROJECT_NAME).bin
-	del  $(SRC:.c=.lst)
-	del  $(ASM_SRC:.s=.lst)
-	del  $(SRC:.c=.o)
-	del  $(ASM_SRC:.s=.o)
+	del  $(CLEAN_ALL)
+	
+clean_usr:
+	del $(USR_CLEAN)
+

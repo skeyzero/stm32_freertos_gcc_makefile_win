@@ -1,0 +1,1101 @@
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1	@ Tag_ABI_FP_denormal
+   3              		.eabi_attribute 21, 1	@ Tag_ABI_FP_exceptions
+   4              		.eabi_attribute 23, 3	@ Tag_ABI_FP_number_model
+   5              		.eabi_attribute 24, 1	@ Tag_ABI_align8_needed
+   6              		.eabi_attribute 25, 1	@ Tag_ABI_align8_preserved
+   7              		.eabi_attribute 26, 1	@ Tag_ABI_enum_size
+   8              		.eabi_attribute 30, 4	@ Tag_ABI_optimization_goals
+   9              		.eabi_attribute 34, 1	@ Tag_CPU_unaligned_access
+  10              		.eabi_attribute 18, 4	@ Tag_ABI_PCS_wchar_t
+  11              		.file	"stm32f10x_dbgmcu.c"
+  12              	@ GNU C17 (GNU Tools for Arm Embedded Processors 9-2019-q4-major) version 9.2.1 20191025 (release) 
+  13              	@	compiled by GNU C version 5.3.1 20160211, GMP version 6.1.0, MPFR version 3.1.4, MPC version 1.0.
+  14              	
+  15              	@ GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+  16              	@ options passed:  -I . -I .\usr_inc -I .\task_inc
+  17              	@ -I .\stlib\CMSIS\CM3\CoreSupport
+  18              	@ -I .\stlib\CMSIS\CM3\DeviceSupport\ST\STM32F10x
+  19              	@ -I .\stlib\STM32F10x_StdPeriph_Driver\inc
+  20              	@ -I .\stlib\STM32F10x_StdPeriph_Driver -I .\freertos\include
+  21              	@ -I .\freertos\portable\GCC\ARM_CM3 -imultilib thumb/v7-m/nofp
+  22              	@ -iprefix c:\program files (x86)\gnu tools arm embedded\9 2019-q4-major\bin\../lib/gcc/arm-none-ea
+  23              	@ -isysroot c:\program files (x86)\gnu tools arm embedded\9 2019-q4-major\bin\../arm-none-eabi
+  24              	@ -D__USES_INITFINI__ -D STM32F10X_HD -D USE_STDPERIPH_DRIVER
+  25              	@ -D HSE_VALUE=8000000 -D RUN_FROM_FLASH=1
+  26              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c -mcpu=cortex-m3
+  27              	@ -mthumb -mfloat-abi=soft -march=armv7-m
+  28              	@ -auxbase-strip .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.o
+  29              	@ -g -gdwarf-2 -Os -Wall -fomit-frame-pointer -fverbose-asm
+  30              	@ options enabled:  -faggressive-loop-optimizations -fassume-phsa
+  31              	@ -fauto-inc-dec -fbranch-count-reg -fcaller-saves -fcode-hoisting
+  32              	@ -fcombine-stack-adjustments -fcommon -fcompare-elim -fcprop-registers
+  33              	@ -fcrossjumping -fcse-follow-jumps -fdefer-pop
+  34              	@ -fdelete-null-pointer-checks -fdevirtualize -fdevirtualize-speculatively
+  35              	@ -fdwarf2-cfi-asm -fearly-inlining -feliminate-unused-debug-types
+  36              	@ -fexpensive-optimizations -fforward-propagate -ffp-int-builtin-inexact
+  37              	@ -ffunction-cse -fgcse -fgcse-lm -fgnu-runtime -fgnu-unique
+  38              	@ -fguess-branch-probability -fhoist-adjacent-loads -fident -fif-conversion
+  39              	@ -fif-conversion2 -findirect-inlining -finline -finline-atomics
+  40              	@ -finline-functions -finline-functions-called-once
+  41              	@ -finline-small-functions -fipa-bit-cp -fipa-cp -fipa-icf
+  42              	@ -fipa-icf-functions -fipa-icf-variables -fipa-profile -fipa-pure-const
+  43              	@ -fipa-ra -fipa-reference -fipa-reference-addressable -fipa-sra
+  44              	@ -fipa-stack-alignment -fipa-vrp -fira-hoist-pressure
+  45              	@ -fira-share-save-slots -fira-share-spill-slots
+  46              	@ -fisolate-erroneous-paths-dereference -fivopts -fkeep-static-consts
+  47              	@ -fleading-underscore -flifetime-dse -flra-remat -flto-odr-type-merging
+  48              	@ -fmath-errno -fmerge-constants -fmerge-debug-strings
+  49              	@ -fmove-loop-invariants -fomit-frame-pointer -foptimize-sibling-calls
+  50              	@ -fpartial-inlining -fpeephole -fpeephole2 -fplt -fprefetch-loop-arrays
+  51              	@ -freg-struct-return -freorder-blocks -freorder-functions
+  52              	@ -frerun-cse-after-loop -fsched-critical-path-heuristic
+  53              	@ -fsched-dep-count-heuristic -fsched-group-heuristic -fsched-interblock
+  54              	@ -fsched-last-insn-heuristic -fsched-pressure -fsched-rank-heuristic
+  55              	@ -fsched-spec -fsched-spec-insn-heuristic -fsched-stalled-insns-dep
+  56              	@ -fschedule-insns2 -fsection-anchors -fsemantic-interposition
+  57              	@ -fshow-column -fshrink-wrap-separate -fsigned-zeros
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 2
+
+
+  58              	@ -fsplit-ivs-in-unroller -fsplit-wide-types -fssa-backprop -fssa-phiopt
+  59              	@ -fstdarg-opt -fstore-merging -fstrict-aliasing
+  60              	@ -fstrict-volatile-bitfields -fsync-libcalls -fthread-jumps
+  61              	@ -ftoplevel-reorder -ftrapping-math -ftree-bit-ccp -ftree-builtin-call-dce
+  62              	@ -ftree-ccp -ftree-ch -ftree-coalesce-vars -ftree-copy-prop -ftree-cselim
+  63              	@ -ftree-dce -ftree-dominator-opts -ftree-dse -ftree-forwprop -ftree-fre
+  64              	@ -ftree-loop-if-convert -ftree-loop-im -ftree-loop-ivcanon
+  65              	@ -ftree-loop-optimize -ftree-parallelize-loops= -ftree-phiprop -ftree-pre
+  66              	@ -ftree-pta -ftree-reassoc -ftree-scev-cprop -ftree-sink -ftree-slsr
+  67              	@ -ftree-sra -ftree-switch-conversion -ftree-tail-merge -ftree-ter
+  68              	@ -ftree-vrp -funit-at-a-time -fvar-tracking -fvar-tracking-assignments
+  69              	@ -fverbose-asm -fzero-initialized-in-bss -masm-syntax-unified -mbe32
+  70              	@ -mfix-cortex-m3-ldrd -mlittle-endian -mpic-data-is-text-relative
+  71              	@ -msched-prolog -mthumb -munaligned-access -mvectorize-with-neon-quad
+  72              	
+  73              		.text
+  74              	.Ltext0:
+  75              		.cfi_sections	.debug_frame
+  76              		.align	1
+  77              		.global	DBGMCU_GetREVID
+  78              		.arch armv7-m
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu softvfp
+  83              		.type	DBGMCU_GetREVID, %function
+  84              	DBGMCU_GetREVID:
+  85              	.LFB29:
+  86              		.file 1 ".\\stlib\\STM32F10x_StdPeriph_Driver\\src\\stm32f10x_dbgmcu.c"
+   1:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+   2:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   ******************************************************************************
+   3:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @file    stm32f10x_dbgmcu.c
+   4:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @author  MCD Application Team
+   5:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @version V3.5.0
+   6:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @date    11-March-2011
+   7:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @brief   This file provides all the DBGMCU firmware functions.
+   8:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   ******************************************************************************
+   9:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @attention
+  10:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *
+  11:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  12:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  13:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  14:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  15:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  16:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  17:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *
+  18:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * <h2><center>&copy; COPYRIGHT 2011 STMicroelectronics</center></h2>
+  19:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   ******************************************************************************
+  20:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  21:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  22:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /* Includes ------------------------------------------------------------------*/
+  23:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** #include "stm32f10x_dbgmcu.h"
+  24:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  25:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @addtogroup STM32F10x_StdPeriph_Driver
+  26:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  27:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  28:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 3
+
+
+  29:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU 
+  30:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @brief DBGMCU driver modules
+  31:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  32:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */ 
+  33:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  34:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_TypesDefinitions
+  35:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  36:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  37:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  38:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  39:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @}
+  40:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  41:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  42:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_Defines
+  43:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  44:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  45:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  46:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** #define IDCODE_DEVID_MASK    ((uint32_t)0x00000FFF)
+  47:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  48:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @}
+  49:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  50:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  51:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_Macros
+  52:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  53:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  54:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  55:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  56:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @}
+  57:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  58:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  59:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_Variables
+  60:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  61:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  62:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  63:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  64:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @}
+  65:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  66:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  67:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_FunctionPrototypes
+  68:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  69:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  70:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  71:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  72:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @}
+  73:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  74:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  75:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /** @defgroup DBGMCU_Private_Functions
+  76:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @{
+  77:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  78:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  79:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  80:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @brief  Returns the device revision identifier.
+  81:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @param  None
+  82:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @retval Device revision identifier
+  83:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  84:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** uint32_t DBGMCU_GetREVID(void)
+  85:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** {
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 4
+
+
+  87              		.loc 1 85 1 view -0
+  88              		.cfi_startproc
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+  86:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****    return(DBGMCU->IDCODE >> 16);
+  92              		.loc 1 86 4 view .LVU1
+  93              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:86:    return(DBGMCU->IDCODE >> 16);
+  94              		.loc 1 86 17 is_stmt 0 view .LVU2
+  95 0000 014B     		ldr	r3, .L2	@ tmp112,
+  96 0002 1868     		ldr	r0, [r3]	@ _1, MEM[(struct DBGMCU_TypeDef *)3758366720B].IDCODE
+  97              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:87: }
+  87:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** }
+  98              		.loc 1 87 1 view .LVU3
+  99 0004 000C     		lsrs	r0, r0, #16	@, _1,
+ 100 0006 7047     		bx	lr	@
+ 101              	.L3:
+ 102              		.align	2
+ 103              	.L2:
+ 104 0008 002004E0 		.word	-536600576
+ 105              		.cfi_endproc
+ 106              	.LFE29:
+ 107              		.size	DBGMCU_GetREVID, .-DBGMCU_GetREVID
+ 108              		.align	1
+ 109              		.global	DBGMCU_GetDEVID
+ 110              		.syntax unified
+ 111              		.thumb
+ 112              		.thumb_func
+ 113              		.fpu softvfp
+ 114              		.type	DBGMCU_GetDEVID, %function
+ 115              	DBGMCU_GetDEVID:
+ 116              	.LFB30:
+  88:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  89:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+  90:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @brief  Returns the device identifier.
+  91:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @param  None
+  92:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @retval Device identifier
+  93:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+  94:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** uint32_t DBGMCU_GetDEVID(void)
+  95:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** {
+ 117              		.loc 1 95 1 is_stmt 1 view -0
+ 118              		.cfi_startproc
+ 119              		@ args = 0, pretend = 0, frame = 0
+ 120              		@ frame_needed = 0, uses_anonymous_args = 0
+ 121              		@ link register save eliminated.
+  96:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****    return(DBGMCU->IDCODE & IDCODE_DEVID_MASK);
+ 122              		.loc 1 96 4 view .LVU5
+ 123              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:96:    return(DBGMCU->IDCODE & IDCODE_D
+ 124              		.loc 1 96 17 is_stmt 0 view .LVU6
+ 125 000c 024B     		ldr	r3, .L5	@ tmp112,
+ 126 000e 1868     		ldr	r0, [r3]	@ _1, MEM[(struct DBGMCU_TypeDef *)3758366720B].IDCODE
+ 127              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:97: }
+  97:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** }
+ 128              		.loc 1 97 1 view .LVU7
+ 129 0010 C0F30B00 		ubfx	r0, r0, #0, #12	@, _1,,
+ 130 0014 7047     		bx	lr	@
+ 131              	.L6:
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 5
+
+
+ 132 0016 00BF     		.align	2
+ 133              	.L5:
+ 134 0018 002004E0 		.word	-536600576
+ 135              		.cfi_endproc
+ 136              	.LFE30:
+ 137              		.size	DBGMCU_GetDEVID, .-DBGMCU_GetDEVID
+ 138              		.align	1
+ 139              		.global	DBGMCU_Config
+ 140              		.syntax unified
+ 141              		.thumb
+ 142              		.thumb_func
+ 143              		.fpu softvfp
+ 144              		.type	DBGMCU_Config, %function
+ 145              	DBGMCU_Config:
+ 146              	.LVL0:
+ 147              	.LFB31:
+  98:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+  99:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** /**
+ 100:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @brief  Configures the specified peripheral and low power mode behavior
+ 101:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *   when the MCU under Debug mode.
+ 102:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @param  DBGMCU_Periph: specifies the peripheral and low power mode.
+ 103:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *   This parameter can be any combination of the following values:
+ 104:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_SLEEP: Keep debugger connection during SLEEP mode              
+ 105:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_STOP: Keep debugger connection during STOP mode               
+ 106:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_STANDBY: Keep debugger connection during STANDBY mode            
+ 107:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_IWDG_STOP: Debug IWDG stopped when Core is halted          
+ 108:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_WWDG_STOP: Debug WWDG stopped when Core is halted          
+ 109:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM1_STOP: TIM1 counter stopped when Core is halted          
+ 110:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM2_STOP: TIM2 counter stopped when Core is halted          
+ 111:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM3_STOP: TIM3 counter stopped when Core is halted          
+ 112:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM4_STOP: TIM4 counter stopped when Core is halted          
+ 113:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_CAN1_STOP: Debug CAN2 stopped when Core is halted           
+ 114:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_I2C1_SMBUS_TIMEOUT: I2C1 SMBUS timeout mode stopped when Core is halted
+ 115:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_I2C2_SMBUS_TIMEOUT: I2C2 SMBUS timeout mode stopped when Core is halted
+ 116:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM5_STOP: TIM5 counter stopped when Core is halted          
+ 117:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM6_STOP: TIM6 counter stopped when Core is halted          
+ 118:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM7_STOP: TIM7 counter stopped when Core is halted          
+ 119:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM8_STOP: TIM8 counter stopped when Core is halted
+ 120:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_CAN2_STOP: Debug CAN2 stopped when Core is halted 
+ 121:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM15_STOP: TIM15 counter stopped when Core is halted
+ 122:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM16_STOP: TIM16 counter stopped when Core is halted
+ 123:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM17_STOP: TIM17 counter stopped when Core is halted                
+ 124:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM9_STOP: TIM9 counter stopped when Core is halted
+ 125:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM10_STOP: TIM10 counter stopped when Core is halted
+ 126:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM11_STOP: TIM11 counter stopped when Core is halted
+ 127:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM12_STOP: TIM12 counter stopped when Core is halted
+ 128:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM13_STOP: TIM13 counter stopped when Core is halted
+ 129:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *     @arg DBGMCU_TIM14_STOP: TIM14 counter stopped when Core is halted
+ 130:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @param  NewState: new state of the specified peripheral in Debug mode.
+ 131:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   *   This parameter can be: ENABLE or DISABLE.
+ 132:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   * @retval None
+ 133:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   */
+ 134:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** void DBGMCU_Config(uint32_t DBGMCU_Periph, FunctionalState NewState)
+ 135:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** {
+ 148              		.loc 1 135 1 is_stmt 1 view -0
+ 149              		.cfi_startproc
+ 150              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 6
+
+
+ 151              		@ frame_needed = 0, uses_anonymous_args = 0
+ 152              		@ link register save eliminated.
+ 136:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   /* Check the parameters */
+ 137:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   assert_param(IS_DBGMCU_PERIPH(DBGMCU_Periph));
+ 153              		.loc 1 137 3 view .LVU9
+ 138:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   assert_param(IS_FUNCTIONAL_STATE(NewState));
+ 154              		.loc 1 138 3 view .LVU10
+ 139:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** 
+ 140:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   if (NewState != DISABLE)
+ 155              		.loc 1 140 3 view .LVU11
+ 156 001c 044B     		ldr	r3, .L11	@ tmp122,
+ 157              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:142:     DBGMCU->CR |= DBGMCU_Periph;
+ 141:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   {
+ 142:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****     DBGMCU->CR |= DBGMCU_Periph;
+ 158              		.loc 1 142 16 is_stmt 0 view .LVU12
+ 159 001e 5A68     		ldr	r2, [r3, #4]	@ _1,
+ 160              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:140:   if (NewState != DISABLE)
+ 140:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   {
+ 161              		.loc 1 140 6 view .LVU13
+ 162 0020 11B1     		cbz	r1, .L8	@ tmp124,
+ 163              		.loc 1 142 5 is_stmt 1 view .LVU14
+ 164              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:142:     DBGMCU->CR |= DBGMCU_Periph;
+ 165              		.loc 1 142 16 is_stmt 0 view .LVU15
+ 166 0022 1043     		orrs	r0, r0, r2	@, _2, DBGMCU_Periph, _1
+ 167              	.LVL1:
+ 168              	.L10:
+ 169              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:146:     DBGMCU->CR &= ~DBGMCU_Periph;
+ 143:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   }
+ 144:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   else
+ 145:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   {
+ 146:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****     DBGMCU->CR &= ~DBGMCU_Periph;
+ 170              		.loc 1 146 16 view .LVU16
+ 171 0024 5860     		str	r0, [r3, #4]	@ _5,
+ 172              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:148: }
+ 147:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   }
+ 148:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c **** }
+ 173              		.loc 1 148 1 view .LVU17
+ 174 0026 7047     		bx	lr	@
+ 175              	.LVL2:
+ 176              	.L8:
+ 146:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   }
+ 177              		.loc 1 146 5 is_stmt 1 view .LVU18
+ 178              	@ .\stlib\STM32F10x_StdPeriph_Driver\src\stm32f10x_dbgmcu.c:146:     DBGMCU->CR &= ~DBGMCU_Periph;
+ 146:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   }
+ 179              		.loc 1 146 16 is_stmt 0 view .LVU19
+ 180 0028 22EA0000 		bic	r0, r2, r0	@ _5, _3, DBGMCU_Periph
+ 181              	.LVL3:
+ 146:.\stlib\STM32F10x_StdPeriph_Driver\src/stm32f10x_dbgmcu.c ****   }
+ 182              		.loc 1 146 16 view .LVU20
+ 183 002c FAE7     		b	.L10		@
+ 184              	.L12:
+ 185 002e 00BF     		.align	2
+ 186              	.L11:
+ 187 0030 002004E0 		.word	-536600576
+ 188              		.cfi_endproc
+ 189              	.LFE31:
+ 190              		.size	DBGMCU_Config, .-DBGMCU_Config
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 7
+
+
+ 191              	.Letext0:
+ 192              		.file 2 "c:\\program files (x86)\\gnu tools arm embedded\\9 2019-q4-major\\arm-none-eabi\\include\
+ 193              		.file 3 "c:\\program files (x86)\\gnu tools arm embedded\\9 2019-q4-major\\arm-none-eabi\\include\
+ 194              		.file 4 ".\\stlib\\CMSIS\\CM3\\CoreSupport/core_cm3.h"
+ 195              		.file 5 ".\\stlib\\CMSIS\\CM3\\DeviceSupport\\ST\\STM32F10x/system_stm32f10x.h"
+ 196              		.file 6 ".\\stlib\\CMSIS\\CM3\\DeviceSupport\\ST\\STM32F10x/stm32f10x.h"
+ 197              		.section	.debug_info,"",%progbits
+ 198              	.Ldebug_info0:
+ 199 0000 78010000 		.4byte	0x178
+ 200 0004 0200     		.2byte	0x2
+ 201 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 202 000a 04       		.byte	0x4
+ 203 000b 01       		.uleb128 0x1
+ 204 000c 00010000 		.4byte	.LASF20
+ 205 0010 0C       		.byte	0xc
+ 206 0011 21000000 		.4byte	.LASF21
+ 207 0015 9D000000 		.4byte	.LASF22
+ 208 0019 00000000 		.4byte	.Ltext0
+ 209 001d 34000000 		.4byte	.Letext0
+ 210 0021 00000000 		.4byte	.Ldebug_line0
+ 211 0025 02       		.uleb128 0x2
+ 212 0026 01       		.byte	0x1
+ 213 0027 06       		.byte	0x6
+ 214 0028 E6010000 		.4byte	.LASF0
+ 215 002c 02       		.uleb128 0x2
+ 216 002d 01       		.byte	0x1
+ 217 002e 08       		.byte	0x8
+ 218 002f B2010000 		.4byte	.LASF1
+ 219 0033 02       		.uleb128 0x2
+ 220 0034 02       		.byte	0x2
+ 221 0035 05       		.byte	0x5
+ 222 0036 0D020000 		.4byte	.LASF2
+ 223 003a 02       		.uleb128 0x2
+ 224 003b 02       		.byte	0x2
+ 225 003c 07       		.byte	0x7
+ 226 003d 0E000000 		.4byte	.LASF3
+ 227 0041 02       		.uleb128 0x2
+ 228 0042 04       		.byte	0x4
+ 229 0043 05       		.byte	0x5
+ 230 0044 D0010000 		.4byte	.LASF4
+ 231 0048 03       		.uleb128 0x3
+ 232 0049 8A000000 		.4byte	.LASF9
+ 233 004d 02       		.byte	0x2
+ 234 004e 4F       		.byte	0x4f
+ 235 004f 19       		.byte	0x19
+ 236 0050 54000000 		.4byte	0x54
+ 237 0054 02       		.uleb128 0x2
+ 238 0055 04       		.byte	0x4
+ 239 0056 07       		.byte	0x7
+ 240 0057 CE000000 		.4byte	.LASF5
+ 241 005b 02       		.uleb128 0x2
+ 242 005c 08       		.byte	0x8
+ 243 005d 05       		.byte	0x5
+ 244 005e 00000000 		.4byte	.LASF6
+ 245 0062 02       		.uleb128 0x2
+ 246 0063 08       		.byte	0x8
+ 247 0064 07       		.byte	0x7
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 8
+
+
+ 248 0065 E0000000 		.4byte	.LASF7
+ 249 0069 04       		.uleb128 0x4
+ 250 006a 04       		.byte	0x4
+ 251 006b 05       		.byte	0x5
+ 252 006c 696E7400 		.ascii	"int\000"
+ 253 0070 05       		.uleb128 0x5
+ 254 0071 69000000 		.4byte	0x69
+ 255 0075 02       		.uleb128 0x2
+ 256 0076 04       		.byte	0x4
+ 257 0077 07       		.byte	0x7
+ 258 0078 F2010000 		.4byte	.LASF8
+ 259 007c 03       		.uleb128 0x3
+ 260 007d C7010000 		.4byte	.LASF10
+ 261 0081 03       		.byte	0x3
+ 262 0082 30       		.byte	0x30
+ 263 0083 14       		.byte	0x14
+ 264 0084 48000000 		.4byte	0x48
+ 265 0088 05       		.uleb128 0x5
+ 266 0089 7C000000 		.4byte	0x7c
+ 267 008d 06       		.uleb128 0x6
+ 268 008e D9010000 		.4byte	.LASF11
+ 269 0092 04       		.byte	0x4
+ 270 0093 CE06     		.2byte	0x6ce
+ 271 0095 15       		.byte	0x15
+ 272 0096 70000000 		.4byte	0x70
+ 273 009a 01       		.byte	0x1
+ 274 009b 01       		.byte	0x1
+ 275 009c 07       		.uleb128 0x7
+ 276 009d 5B000000 		.4byte	.LASF12
+ 277 00a1 05       		.byte	0x5
+ 278 00a2 35       		.byte	0x35
+ 279 00a3 11       		.byte	0x11
+ 280 00a4 7C000000 		.4byte	0x7c
+ 281 00a8 01       		.byte	0x1
+ 282 00a9 01       		.byte	0x1
+ 283 00aa 08       		.uleb128 0x8
+ 284 00ab 07       		.byte	0x7
+ 285 00ac 01       		.byte	0x1
+ 286 00ad 2C000000 		.4byte	0x2c
+ 287 00b1 06       		.byte	0x6
+ 288 00b2 0902     		.2byte	0x209
+ 289 00b4 0E       		.byte	0xe
+ 290 00b5 C6000000 		.4byte	0xc6
+ 291 00b9 09       		.uleb128 0x9
+ 292 00ba 95000000 		.4byte	.LASF13
+ 293 00be 00       		.byte	0
+ 294 00bf 09       		.uleb128 0x9
+ 295 00c0 C0010000 		.4byte	.LASF14
+ 296 00c4 01       		.byte	0x1
+ 297 00c5 00       		.byte	0
+ 298 00c6 0A       		.uleb128 0xa
+ 299 00c7 7A000000 		.4byte	.LASF15
+ 300 00cb 06       		.byte	0x6
+ 301 00cc 0902     		.2byte	0x209
+ 302 00ce 2F       		.byte	0x2f
+ 303 00cf AA000000 		.4byte	0xaa
+ 304 00d3 0B       		.uleb128 0xb
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 9
+
+
+ 305 00d4 08       		.byte	0x8
+ 306 00d5 06       		.byte	0x6
+ 307 00d6 1403     		.2byte	0x314
+ 308 00d8 09       		.byte	0x9
+ 309 00d9 FD000000 		.4byte	0xfd
+ 310 00dd 0C       		.uleb128 0xc
+ 311 00de 17020000 		.4byte	.LASF16
+ 312 00e2 06       		.byte	0x6
+ 313 00e3 1603     		.2byte	0x316
+ 314 00e5 11       		.byte	0x11
+ 315 00e6 88000000 		.4byte	0x88
+ 316 00ea 02       		.byte	0x2
+ 317 00eb 23       		.byte	0x23
+ 318 00ec 00       		.uleb128 0
+ 319 00ed 0D       		.uleb128 0xd
+ 320 00ee 435200   		.ascii	"CR\000"
+ 321 00f1 06       		.byte	0x6
+ 322 00f2 1703     		.2byte	0x317
+ 323 00f4 11       		.byte	0x11
+ 324 00f5 88000000 		.4byte	0x88
+ 325 00f9 02       		.byte	0x2
+ 326 00fa 23       		.byte	0x23
+ 327 00fb 04       		.uleb128 0x4
+ 328 00fc 00       		.byte	0
+ 329 00fd 0A       		.uleb128 0xa
+ 330 00fe 6B000000 		.4byte	.LASF17
+ 331 0102 06       		.byte	0x6
+ 332 0103 1803     		.2byte	0x318
+ 333 0105 02       		.byte	0x2
+ 334 0106 D3000000 		.4byte	0xd3
+ 335 010a 0E       		.uleb128 0xe
+ 336 010b 01       		.byte	0x1
+ 337 010c C0000000 		.4byte	.LASF23
+ 338 0110 01       		.byte	0x1
+ 339 0111 86       		.byte	0x86
+ 340 0112 06       		.byte	0x6
+ 341 0113 01       		.byte	0x1
+ 342 0114 1C000000 		.4byte	.LFB31
+ 343 0118 34000000 		.4byte	.LFE31
+ 344 011c 02       		.byte	0x2
+ 345 011d 7D       		.byte	0x7d
+ 346 011e 00       		.sleb128 0
+ 347 011f 01       		.byte	0x1
+ 348 0120 47010000 		.4byte	0x147
+ 349 0124 0F       		.uleb128 0xf
+ 350 0125 FF010000 		.4byte	.LASF24
+ 351 0129 01       		.byte	0x1
+ 352 012a 86       		.byte	0x86
+ 353 012b 1D       		.byte	0x1d
+ 354 012c 7C000000 		.4byte	0x7c
+ 355 0130 08000000 		.4byte	.LLST0
+ 356 0134 00000000 		.4byte	.LVUS0
+ 357 0138 10       		.uleb128 0x10
+ 358 0139 F7000000 		.4byte	.LASF25
+ 359 013d 01       		.byte	0x1
+ 360 013e 86       		.byte	0x86
+ 361 013f 3C       		.byte	0x3c
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 10
+
+
+ 362 0140 C6000000 		.4byte	0xc6
+ 363 0144 01       		.byte	0x1
+ 364 0145 51       		.byte	0x51
+ 365 0146 00       		.byte	0
+ 366 0147 11       		.uleb128 0x11
+ 367 0148 01       		.byte	0x1
+ 368 0149 1E020000 		.4byte	.LASF18
+ 369 014d 01       		.byte	0x1
+ 370 014e 5E       		.byte	0x5e
+ 371 014f 0A       		.byte	0xa
+ 372 0150 01       		.byte	0x1
+ 373 0151 7C000000 		.4byte	0x7c
+ 374 0155 0C000000 		.4byte	.LFB30
+ 375 0159 1C000000 		.4byte	.LFE30
+ 376 015d 02       		.byte	0x2
+ 377 015e 7D       		.byte	0x7d
+ 378 015f 00       		.sleb128 0
+ 379 0160 01       		.byte	0x1
+ 380 0161 11       		.uleb128 0x11
+ 381 0162 01       		.byte	0x1
+ 382 0163 A2010000 		.4byte	.LASF19
+ 383 0167 01       		.byte	0x1
+ 384 0168 54       		.byte	0x54
+ 385 0169 0A       		.byte	0xa
+ 386 016a 01       		.byte	0x1
+ 387 016b 7C000000 		.4byte	0x7c
+ 388 016f 00000000 		.4byte	.LFB29
+ 389 0173 0C000000 		.4byte	.LFE29
+ 390 0177 02       		.byte	0x2
+ 391 0178 7D       		.byte	0x7d
+ 392 0179 00       		.sleb128 0
+ 393 017a 01       		.byte	0x1
+ 394 017b 00       		.byte	0
+ 395              		.section	.debug_abbrev,"",%progbits
+ 396              	.Ldebug_abbrev0:
+ 397 0000 01       		.uleb128 0x1
+ 398 0001 11       		.uleb128 0x11
+ 399 0002 01       		.byte	0x1
+ 400 0003 25       		.uleb128 0x25
+ 401 0004 0E       		.uleb128 0xe
+ 402 0005 13       		.uleb128 0x13
+ 403 0006 0B       		.uleb128 0xb
+ 404 0007 03       		.uleb128 0x3
+ 405 0008 0E       		.uleb128 0xe
+ 406 0009 1B       		.uleb128 0x1b
+ 407 000a 0E       		.uleb128 0xe
+ 408 000b 11       		.uleb128 0x11
+ 409 000c 01       		.uleb128 0x1
+ 410 000d 12       		.uleb128 0x12
+ 411 000e 01       		.uleb128 0x1
+ 412 000f 10       		.uleb128 0x10
+ 413 0010 06       		.uleb128 0x6
+ 414 0011 00       		.byte	0
+ 415 0012 00       		.byte	0
+ 416 0013 02       		.uleb128 0x2
+ 417 0014 24       		.uleb128 0x24
+ 418 0015 00       		.byte	0
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 11
+
+
+ 419 0016 0B       		.uleb128 0xb
+ 420 0017 0B       		.uleb128 0xb
+ 421 0018 3E       		.uleb128 0x3e
+ 422 0019 0B       		.uleb128 0xb
+ 423 001a 03       		.uleb128 0x3
+ 424 001b 0E       		.uleb128 0xe
+ 425 001c 00       		.byte	0
+ 426 001d 00       		.byte	0
+ 427 001e 03       		.uleb128 0x3
+ 428 001f 16       		.uleb128 0x16
+ 429 0020 00       		.byte	0
+ 430 0021 03       		.uleb128 0x3
+ 431 0022 0E       		.uleb128 0xe
+ 432 0023 3A       		.uleb128 0x3a
+ 433 0024 0B       		.uleb128 0xb
+ 434 0025 3B       		.uleb128 0x3b
+ 435 0026 0B       		.uleb128 0xb
+ 436 0027 39       		.uleb128 0x39
+ 437 0028 0B       		.uleb128 0xb
+ 438 0029 49       		.uleb128 0x49
+ 439 002a 13       		.uleb128 0x13
+ 440 002b 00       		.byte	0
+ 441 002c 00       		.byte	0
+ 442 002d 04       		.uleb128 0x4
+ 443 002e 24       		.uleb128 0x24
+ 444 002f 00       		.byte	0
+ 445 0030 0B       		.uleb128 0xb
+ 446 0031 0B       		.uleb128 0xb
+ 447 0032 3E       		.uleb128 0x3e
+ 448 0033 0B       		.uleb128 0xb
+ 449 0034 03       		.uleb128 0x3
+ 450 0035 08       		.uleb128 0x8
+ 451 0036 00       		.byte	0
+ 452 0037 00       		.byte	0
+ 453 0038 05       		.uleb128 0x5
+ 454 0039 35       		.uleb128 0x35
+ 455 003a 00       		.byte	0
+ 456 003b 49       		.uleb128 0x49
+ 457 003c 13       		.uleb128 0x13
+ 458 003d 00       		.byte	0
+ 459 003e 00       		.byte	0
+ 460 003f 06       		.uleb128 0x6
+ 461 0040 34       		.uleb128 0x34
+ 462 0041 00       		.byte	0
+ 463 0042 03       		.uleb128 0x3
+ 464 0043 0E       		.uleb128 0xe
+ 465 0044 3A       		.uleb128 0x3a
+ 466 0045 0B       		.uleb128 0xb
+ 467 0046 3B       		.uleb128 0x3b
+ 468 0047 05       		.uleb128 0x5
+ 469 0048 39       		.uleb128 0x39
+ 470 0049 0B       		.uleb128 0xb
+ 471 004a 49       		.uleb128 0x49
+ 472 004b 13       		.uleb128 0x13
+ 473 004c 3F       		.uleb128 0x3f
+ 474 004d 0C       		.uleb128 0xc
+ 475 004e 3C       		.uleb128 0x3c
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 12
+
+
+ 476 004f 0C       		.uleb128 0xc
+ 477 0050 00       		.byte	0
+ 478 0051 00       		.byte	0
+ 479 0052 07       		.uleb128 0x7
+ 480 0053 34       		.uleb128 0x34
+ 481 0054 00       		.byte	0
+ 482 0055 03       		.uleb128 0x3
+ 483 0056 0E       		.uleb128 0xe
+ 484 0057 3A       		.uleb128 0x3a
+ 485 0058 0B       		.uleb128 0xb
+ 486 0059 3B       		.uleb128 0x3b
+ 487 005a 0B       		.uleb128 0xb
+ 488 005b 39       		.uleb128 0x39
+ 489 005c 0B       		.uleb128 0xb
+ 490 005d 49       		.uleb128 0x49
+ 491 005e 13       		.uleb128 0x13
+ 492 005f 3F       		.uleb128 0x3f
+ 493 0060 0C       		.uleb128 0xc
+ 494 0061 3C       		.uleb128 0x3c
+ 495 0062 0C       		.uleb128 0xc
+ 496 0063 00       		.byte	0
+ 497 0064 00       		.byte	0
+ 498 0065 08       		.uleb128 0x8
+ 499 0066 04       		.uleb128 0x4
+ 500 0067 01       		.byte	0x1
+ 501 0068 3E       		.uleb128 0x3e
+ 502 0069 0B       		.uleb128 0xb
+ 503 006a 0B       		.uleb128 0xb
+ 504 006b 0B       		.uleb128 0xb
+ 505 006c 49       		.uleb128 0x49
+ 506 006d 13       		.uleb128 0x13
+ 507 006e 3A       		.uleb128 0x3a
+ 508 006f 0B       		.uleb128 0xb
+ 509 0070 3B       		.uleb128 0x3b
+ 510 0071 05       		.uleb128 0x5
+ 511 0072 39       		.uleb128 0x39
+ 512 0073 0B       		.uleb128 0xb
+ 513 0074 01       		.uleb128 0x1
+ 514 0075 13       		.uleb128 0x13
+ 515 0076 00       		.byte	0
+ 516 0077 00       		.byte	0
+ 517 0078 09       		.uleb128 0x9
+ 518 0079 28       		.uleb128 0x28
+ 519 007a 00       		.byte	0
+ 520 007b 03       		.uleb128 0x3
+ 521 007c 0E       		.uleb128 0xe
+ 522 007d 1C       		.uleb128 0x1c
+ 523 007e 0B       		.uleb128 0xb
+ 524 007f 00       		.byte	0
+ 525 0080 00       		.byte	0
+ 526 0081 0A       		.uleb128 0xa
+ 527 0082 16       		.uleb128 0x16
+ 528 0083 00       		.byte	0
+ 529 0084 03       		.uleb128 0x3
+ 530 0085 0E       		.uleb128 0xe
+ 531 0086 3A       		.uleb128 0x3a
+ 532 0087 0B       		.uleb128 0xb
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 13
+
+
+ 533 0088 3B       		.uleb128 0x3b
+ 534 0089 05       		.uleb128 0x5
+ 535 008a 39       		.uleb128 0x39
+ 536 008b 0B       		.uleb128 0xb
+ 537 008c 49       		.uleb128 0x49
+ 538 008d 13       		.uleb128 0x13
+ 539 008e 00       		.byte	0
+ 540 008f 00       		.byte	0
+ 541 0090 0B       		.uleb128 0xb
+ 542 0091 13       		.uleb128 0x13
+ 543 0092 01       		.byte	0x1
+ 544 0093 0B       		.uleb128 0xb
+ 545 0094 0B       		.uleb128 0xb
+ 546 0095 3A       		.uleb128 0x3a
+ 547 0096 0B       		.uleb128 0xb
+ 548 0097 3B       		.uleb128 0x3b
+ 549 0098 05       		.uleb128 0x5
+ 550 0099 39       		.uleb128 0x39
+ 551 009a 0B       		.uleb128 0xb
+ 552 009b 01       		.uleb128 0x1
+ 553 009c 13       		.uleb128 0x13
+ 554 009d 00       		.byte	0
+ 555 009e 00       		.byte	0
+ 556 009f 0C       		.uleb128 0xc
+ 557 00a0 0D       		.uleb128 0xd
+ 558 00a1 00       		.byte	0
+ 559 00a2 03       		.uleb128 0x3
+ 560 00a3 0E       		.uleb128 0xe
+ 561 00a4 3A       		.uleb128 0x3a
+ 562 00a5 0B       		.uleb128 0xb
+ 563 00a6 3B       		.uleb128 0x3b
+ 564 00a7 05       		.uleb128 0x5
+ 565 00a8 39       		.uleb128 0x39
+ 566 00a9 0B       		.uleb128 0xb
+ 567 00aa 49       		.uleb128 0x49
+ 568 00ab 13       		.uleb128 0x13
+ 569 00ac 38       		.uleb128 0x38
+ 570 00ad 0A       		.uleb128 0xa
+ 571 00ae 00       		.byte	0
+ 572 00af 00       		.byte	0
+ 573 00b0 0D       		.uleb128 0xd
+ 574 00b1 0D       		.uleb128 0xd
+ 575 00b2 00       		.byte	0
+ 576 00b3 03       		.uleb128 0x3
+ 577 00b4 08       		.uleb128 0x8
+ 578 00b5 3A       		.uleb128 0x3a
+ 579 00b6 0B       		.uleb128 0xb
+ 580 00b7 3B       		.uleb128 0x3b
+ 581 00b8 05       		.uleb128 0x5
+ 582 00b9 39       		.uleb128 0x39
+ 583 00ba 0B       		.uleb128 0xb
+ 584 00bb 49       		.uleb128 0x49
+ 585 00bc 13       		.uleb128 0x13
+ 586 00bd 38       		.uleb128 0x38
+ 587 00be 0A       		.uleb128 0xa
+ 588 00bf 00       		.byte	0
+ 589 00c0 00       		.byte	0
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 14
+
+
+ 590 00c1 0E       		.uleb128 0xe
+ 591 00c2 2E       		.uleb128 0x2e
+ 592 00c3 01       		.byte	0x1
+ 593 00c4 3F       		.uleb128 0x3f
+ 594 00c5 0C       		.uleb128 0xc
+ 595 00c6 03       		.uleb128 0x3
+ 596 00c7 0E       		.uleb128 0xe
+ 597 00c8 3A       		.uleb128 0x3a
+ 598 00c9 0B       		.uleb128 0xb
+ 599 00ca 3B       		.uleb128 0x3b
+ 600 00cb 0B       		.uleb128 0xb
+ 601 00cc 39       		.uleb128 0x39
+ 602 00cd 0B       		.uleb128 0xb
+ 603 00ce 27       		.uleb128 0x27
+ 604 00cf 0C       		.uleb128 0xc
+ 605 00d0 11       		.uleb128 0x11
+ 606 00d1 01       		.uleb128 0x1
+ 607 00d2 12       		.uleb128 0x12
+ 608 00d3 01       		.uleb128 0x1
+ 609 00d4 40       		.uleb128 0x40
+ 610 00d5 0A       		.uleb128 0xa
+ 611 00d6 9742     		.uleb128 0x2117
+ 612 00d8 0C       		.uleb128 0xc
+ 613 00d9 01       		.uleb128 0x1
+ 614 00da 13       		.uleb128 0x13
+ 615 00db 00       		.byte	0
+ 616 00dc 00       		.byte	0
+ 617 00dd 0F       		.uleb128 0xf
+ 618 00de 05       		.uleb128 0x5
+ 619 00df 00       		.byte	0
+ 620 00e0 03       		.uleb128 0x3
+ 621 00e1 0E       		.uleb128 0xe
+ 622 00e2 3A       		.uleb128 0x3a
+ 623 00e3 0B       		.uleb128 0xb
+ 624 00e4 3B       		.uleb128 0x3b
+ 625 00e5 0B       		.uleb128 0xb
+ 626 00e6 39       		.uleb128 0x39
+ 627 00e7 0B       		.uleb128 0xb
+ 628 00e8 49       		.uleb128 0x49
+ 629 00e9 13       		.uleb128 0x13
+ 630 00ea 02       		.uleb128 0x2
+ 631 00eb 06       		.uleb128 0x6
+ 632 00ec B742     		.uleb128 0x2137
+ 633 00ee 06       		.uleb128 0x6
+ 634 00ef 00       		.byte	0
+ 635 00f0 00       		.byte	0
+ 636 00f1 10       		.uleb128 0x10
+ 637 00f2 05       		.uleb128 0x5
+ 638 00f3 00       		.byte	0
+ 639 00f4 03       		.uleb128 0x3
+ 640 00f5 0E       		.uleb128 0xe
+ 641 00f6 3A       		.uleb128 0x3a
+ 642 00f7 0B       		.uleb128 0xb
+ 643 00f8 3B       		.uleb128 0x3b
+ 644 00f9 0B       		.uleb128 0xb
+ 645 00fa 39       		.uleb128 0x39
+ 646 00fb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 15
+
+
+ 647 00fc 49       		.uleb128 0x49
+ 648 00fd 13       		.uleb128 0x13
+ 649 00fe 02       		.uleb128 0x2
+ 650 00ff 0A       		.uleb128 0xa
+ 651 0100 00       		.byte	0
+ 652 0101 00       		.byte	0
+ 653 0102 11       		.uleb128 0x11
+ 654 0103 2E       		.uleb128 0x2e
+ 655 0104 00       		.byte	0
+ 656 0105 3F       		.uleb128 0x3f
+ 657 0106 0C       		.uleb128 0xc
+ 658 0107 03       		.uleb128 0x3
+ 659 0108 0E       		.uleb128 0xe
+ 660 0109 3A       		.uleb128 0x3a
+ 661 010a 0B       		.uleb128 0xb
+ 662 010b 3B       		.uleb128 0x3b
+ 663 010c 0B       		.uleb128 0xb
+ 664 010d 39       		.uleb128 0x39
+ 665 010e 0B       		.uleb128 0xb
+ 666 010f 27       		.uleb128 0x27
+ 667 0110 0C       		.uleb128 0xc
+ 668 0111 49       		.uleb128 0x49
+ 669 0112 13       		.uleb128 0x13
+ 670 0113 11       		.uleb128 0x11
+ 671 0114 01       		.uleb128 0x1
+ 672 0115 12       		.uleb128 0x12
+ 673 0116 01       		.uleb128 0x1
+ 674 0117 40       		.uleb128 0x40
+ 675 0118 0A       		.uleb128 0xa
+ 676 0119 9742     		.uleb128 0x2117
+ 677 011b 0C       		.uleb128 0xc
+ 678 011c 00       		.byte	0
+ 679 011d 00       		.byte	0
+ 680 011e 00       		.byte	0
+ 681              		.section	.debug_loc,"",%progbits
+ 682              	.Ldebug_loc0:
+ 683              	.LVUS0:
+ 684 0000 00       		.uleb128 0
+ 685 0001 00       		.uleb128 .LVU16
+ 686 0002 00       		.uleb128 .LVU16
+ 687 0003 00       		.uleb128 .LVU18
+ 688 0004 00       		.uleb128 .LVU18
+ 689 0005 00       		.uleb128 .LVU20
+ 690 0006 00       		.uleb128 .LVU20
+ 691 0007 00       		.uleb128 0
+ 692              	.LLST0:
+ 693 0008 1C000000 		.4byte	.LVL0-.Ltext0
+ 694 000c 24000000 		.4byte	.LVL1-.Ltext0
+ 695 0010 0100     		.2byte	0x1
+ 696 0012 50       		.byte	0x50
+ 697 0013 24000000 		.4byte	.LVL1-.Ltext0
+ 698 0017 28000000 		.4byte	.LVL2-.Ltext0
+ 699 001b 0400     		.2byte	0x4
+ 700 001d F3       		.byte	0xf3
+ 701 001e 01       		.uleb128 0x1
+ 702 001f 50       		.byte	0x50
+ 703 0020 9F       		.byte	0x9f
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 16
+
+
+ 704 0021 28000000 		.4byte	.LVL2-.Ltext0
+ 705 0025 2C000000 		.4byte	.LVL3-.Ltext0
+ 706 0029 0100     		.2byte	0x1
+ 707 002b 50       		.byte	0x50
+ 708 002c 2C000000 		.4byte	.LVL3-.Ltext0
+ 709 0030 34000000 		.4byte	.LFE31-.Ltext0
+ 710 0034 0400     		.2byte	0x4
+ 711 0036 F3       		.byte	0xf3
+ 712 0037 01       		.uleb128 0x1
+ 713 0038 50       		.byte	0x50
+ 714 0039 9F       		.byte	0x9f
+ 715 003a 00000000 		.4byte	0
+ 716 003e 00000000 		.4byte	0
+ 717              		.section	.debug_aranges,"",%progbits
+ 718 0000 1C000000 		.4byte	0x1c
+ 719 0004 0200     		.2byte	0x2
+ 720 0006 00000000 		.4byte	.Ldebug_info0
+ 721 000a 04       		.byte	0x4
+ 722 000b 00       		.byte	0
+ 723 000c 0000     		.2byte	0
+ 724 000e 0000     		.2byte	0
+ 725 0010 00000000 		.4byte	.Ltext0
+ 726 0014 34000000 		.4byte	.Letext0-.Ltext0
+ 727 0018 00000000 		.4byte	0
+ 728 001c 00000000 		.4byte	0
+ 729              		.section	.debug_line,"",%progbits
+ 730              	.Ldebug_line0:
+ 731 0000 04020000 		.section	.debug_str,"MS",%progbits,1
+ 731      0300A301 
+ 731      00000201 
+ 731      FB0E0D00 
+ 731      01010101 
+ 732              	.LASF6:
+ 733 0000 6C6F6E67 		.ascii	"long long int\000"
+ 733      206C6F6E 
+ 733      6720696E 
+ 733      7400
+ 734              	.LASF3:
+ 735 000e 73686F72 		.ascii	"short unsigned int\000"
+ 735      7420756E 
+ 735      7369676E 
+ 735      65642069 
+ 735      6E7400
+ 736              	.LASF21:
+ 737 0021 2E5C7374 		.ascii	".\\stlib\\STM32F10x_StdPeriph_Driver\\src\\stm32f10"
+ 737      6C69625C 
+ 737      53544D33 
+ 737      32463130 
+ 737      785F5374 
+ 738 0050 785F6462 		.ascii	"x_dbgmcu.c\000"
+ 738      676D6375 
+ 738      2E6300
+ 739              	.LASF12:
+ 740 005b 53797374 		.ascii	"SystemCoreClock\000"
+ 740      656D436F 
+ 740      7265436C 
+ 740      6F636B00 
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 17
+
+
+ 741              	.LASF17:
+ 742 006b 4442474D 		.ascii	"DBGMCU_TypeDef\000"
+ 742      43555F54 
+ 742      79706544 
+ 742      656600
+ 743              	.LASF15:
+ 744 007a 46756E63 		.ascii	"FunctionalState\000"
+ 744      74696F6E 
+ 744      616C5374 
+ 744      61746500 
+ 745              	.LASF9:
+ 746 008a 5F5F7569 		.ascii	"__uint32_t\000"
+ 746      6E743332 
+ 746      5F7400
+ 747              	.LASF13:
+ 748 0095 44495341 		.ascii	"DISABLE\000"
+ 748      424C4500 
+ 749              	.LASF22:
+ 750 009d 443A5C53 		.ascii	"D:\\STM32_Freertos_GCC_Makefile_Win\000"
+ 750      544D3332 
+ 750      5F467265 
+ 750      6572746F 
+ 750      735F4743 
+ 751              	.LASF23:
+ 752 00c0 4442474D 		.ascii	"DBGMCU_Config\000"
+ 752      43555F43 
+ 752      6F6E6669 
+ 752      6700
+ 753              	.LASF5:
+ 754 00ce 6C6F6E67 		.ascii	"long unsigned int\000"
+ 754      20756E73 
+ 754      69676E65 
+ 754      6420696E 
+ 754      7400
+ 755              	.LASF7:
+ 756 00e0 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 756      206C6F6E 
+ 756      6720756E 
+ 756      7369676E 
+ 756      65642069 
+ 757              	.LASF25:
+ 758 00f7 4E657753 		.ascii	"NewState\000"
+ 758      74617465 
+ 758      00
+ 759              	.LASF20:
+ 760 0100 474E5520 		.ascii	"GNU C17 9.2.1 20191025 (release) [ARM/arm-9-branch "
+ 760      43313720 
+ 760      392E322E 
+ 760      31203230 
+ 760      31393130 
+ 761 0133 72657669 		.ascii	"revision 277599] -mcpu=cortex-m3 -mthumb -mfloat-ab"
+ 761      73696F6E 
+ 761      20323737 
+ 761      3539395D 
+ 761      202D6D63 
+ 762 0166 693D736F 		.ascii	"i=soft -march=armv7-m -g -gdwarf-2 -Os -fomit-frame"
+ 762      6674202D 
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 18
+
+
+ 762      6D617263 
+ 762      683D6172 
+ 762      6D76372D 
+ 763 0199 2D706F69 		.ascii	"-pointer\000"
+ 763      6E746572 
+ 763      00
+ 764              	.LASF19:
+ 765 01a2 4442474D 		.ascii	"DBGMCU_GetREVID\000"
+ 765      43555F47 
+ 765      65745245 
+ 765      56494400 
+ 766              	.LASF1:
+ 767 01b2 756E7369 		.ascii	"unsigned char\000"
+ 767      676E6564 
+ 767      20636861 
+ 767      7200
+ 768              	.LASF14:
+ 769 01c0 454E4142 		.ascii	"ENABLE\000"
+ 769      4C4500
+ 770              	.LASF10:
+ 771 01c7 75696E74 		.ascii	"uint32_t\000"
+ 771      33325F74 
+ 771      00
+ 772              	.LASF4:
+ 773 01d0 6C6F6E67 		.ascii	"long int\000"
+ 773      20696E74 
+ 773      00
+ 774              	.LASF11:
+ 775 01d9 49544D5F 		.ascii	"ITM_RxBuffer\000"
+ 775      52784275 
+ 775      66666572 
+ 775      00
+ 776              	.LASF0:
+ 777 01e6 7369676E 		.ascii	"signed char\000"
+ 777      65642063 
+ 777      68617200 
+ 778              	.LASF8:
+ 779 01f2 756E7369 		.ascii	"unsigned int\000"
+ 779      676E6564 
+ 779      20696E74 
+ 779      00
+ 780              	.LASF24:
+ 781 01ff 4442474D 		.ascii	"DBGMCU_Periph\000"
+ 781      43555F50 
+ 781      65726970 
+ 781      6800
+ 782              	.LASF2:
+ 783 020d 73686F72 		.ascii	"short int\000"
+ 783      7420696E 
+ 783      7400
+ 784              	.LASF16:
+ 785 0217 4944434F 		.ascii	"IDCODE\000"
+ 785      444500
+ 786              	.LASF18:
+ 787 021e 4442474D 		.ascii	"DBGMCU_GetDEVID\000"
+ 787      43555F47 
+ 787      65744445 
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 19
+
+
+ 787      56494400 
+ 788              		.ident	"GCC: (GNU Tools for Arm Embedded Processors 9-2019-q4-major) 9.2.1 20191025 (release) [ARM
+ARM GAS  C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s 			page 20
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 stm32f10x_dbgmcu.c
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:76     .text:00000000 $t
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:84     .text:00000000 DBGMCU_GetREVID
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:104    .text:00000008 $d
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:108    .text:0000000c $t
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:115    .text:0000000c DBGMCU_GetDEVID
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:134    .text:00000018 $d
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:138    .text:0000001c $t
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:145    .text:0000001c DBGMCU_Config
+C:\Users\skey\AppData\Local\Temp\ccM7eg8C.s:187    .text:00000030 $d
+
+NO UNDEFINED SYMBOLS

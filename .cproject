@@ -115,8 +115,6 @@
                 				
                 <buildCommand>make.exe</buildCommand>
                 				
-                <buildArguments/>
-                				
                 <buildTarget>flash</buildTarget>
                 				
                 <stopOnError>true</stopOnError>
@@ -127,13 +125,13 @@
                 			
             </target>
             			
-            <target name="Clean Project" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+            <target name="Clean All" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
                 				
                 <buildCommand>make.exe</buildCommand>
                 				
                 <buildArguments/>
                 				
-                <buildTarget>clean</buildTarget>
+                <buildTarget>clean_all</buildTarget>
                 				
                 <stopOnError>true</stopOnError>
                 				
@@ -147,8 +145,6 @@
                 				
                 <buildCommand>make.exe</buildCommand>
                 				
-                <buildArguments/>
-                				
                 <buildTarget>all</buildTarget>
                 				
                 <stopOnError>true</stopOnError>
@@ -156,6 +152,22 @@
                 <useDefaultCommand>false</useDefaultCommand>
                 				
                 <runAllBuilders>false</runAllBuilders>
+                			
+            </target>
+            			
+            <target name="Clean Usr" path="" targetID="org.eclipse.cdt.build.MakeTargetBuilder">
+                				
+                <buildCommand>make.exe</buildCommand>
+                				
+                <buildArguments/>
+                				
+                <buildTarget>clean_usr</buildTarget>
+                				
+                <stopOnError>true</stopOnError>
+                				
+                <useDefaultCommand>false</useDefaultCommand>
+                				
+                <runAllBuilders>true</runAllBuilders>
                 			
             </target>
             		

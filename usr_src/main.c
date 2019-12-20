@@ -13,16 +13,16 @@ Freertos 10.2.0 锟斤拷植锟芥本.
 #include "timers.h"
 
 
-#include "stm32f10x.h"
-
-
 #include "task_debug.h"
+
+
+
 
 int main(void)
 {
-
+	//UART3_Init(1);
+	//UART3_Send(0xaa);
 	Create_Task_Debug(1);
-	
 	vTaskStartScheduler(); 		//锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟绞贾达拷锟�
 	
 	return 0;
